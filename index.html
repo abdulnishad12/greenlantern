@@ -38,6 +38,145 @@
 
 		<!-- Modernizer Script for old Browsers -->
         <script src="js/modernizr-2.6.2.min.js"></script>
+		
+		<style>
+		 /*Trigger Button*/
+.login-trigger {
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to bottom right, #2cb1d2, #242461);
+  padding: 15px 30px;
+  border-radius: 30px;
+  position: relative; 
+  top: 50%;
+}
+
+/*Modal*/
+h4 {
+  font-weight: bold;
+  color: #fff;
+}
+.close {
+  color: #fff;
+  transform: scale(1.2)
+}
+.modal-content {
+  font-weight: bold;
+  background: linear-gradient(to bottom right,#2cb1d2,#242461);
+}
+.form-control {
+  margin: 1em 0;
+}
+.form-control:hover, .form-control:focus {
+  box-shadow: none;  
+  border-color: #fff;
+}
+.username, .password {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 2px solid #eee;
+  padding-left: 0;
+  font-weight: normal;
+  background: transparent;  
+}
+.form-control::-webkit-input-placeholder {
+  color: #eee;  
+}
+.form-control:focus::-webkit-input-placeholder {
+  font-weight: bold;
+  color: #fff;
+}
+.login {
+  padding: 6px 20px;
+  border-radius: 20px;
+  background: none;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-weight: bold;
+  transition: all .5s;
+  margin-top: 1em;
+}
+.login:hover {
+  background: #242461;
+  color: #fff;
+}
+
+/*toggle contact us style*/
+* {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #2cb1d2;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+  z-index: 9;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #2cb1d2;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a blue background color to the cancel button */
+.form-container .cancel {
+  background-color: #242461;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+		</style>
 
     </head>
 	
@@ -45,16 +184,14 @@
 	
 		<!-- preloader -->
 		<div id="preloader">
-			<img src="img/preloader.gif" alt="Preloader">
+			<img src="img/preloader_rm.gif" alt="Preloader">
 		</div>
 		<!-- end preloader -->
 
         <!-- 
         Fixed Navigation
         ==================================== -->
-        <header id="navigation" class="navbar-fixed-top navbar"  style="background-color: rgba(255, 255, 255, 0.8);
-}
-">
+        <header id="navigation" class="navbar-fixed-top navbar"  style="background-color: rgba(255, 255, 255, 0.8);">
             <div class="container">
                 <div class="navbar-header">
                     <!-- responsive nav button -->
@@ -80,8 +217,8 @@
                         <li class="current"><a href="#body" style="color:#0f1465;">Home</a></li>
                         <li><a href="#features" style="color:#0f1465;">About Us</a></li>
                         <li><a href="#works" style="color:#0f1465;">Contact Us</a></li>
-                        <li><a href="#team" style="color:#0f1465;">COVID19</a></li>
-                        <li><a href="#team" style="color:#0f1465;">Client Login</a></li>
+                        <!--<li><a href="#team" style="color:#0f1465;">COVID19</a></li> -->
+                        <li><a href="#" style="color:#0f1465;" data-target="#login" data-toggle="modal">Client Login</a></li>
                     </ul>
                 </nav>
 				<!-- /main nav -->
@@ -91,8 +228,59 @@
         <!--
         End Fixed Navigation
         ==================================== -->
-		
-		
+		<div id="login" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="width: 400px; margin: 100px auto;">
+    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Login</h4>
+        <form>
+          <input type="text" name="username" class="username form-control" placeholder="Username"/>
+          <input type="password" name="password" class="password form-control" placeholder="password"/>
+          <input class="btn login" type="submit" value="Login" />
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+		<button class="open-button" onclick="openForm()">Contact Us</button>
+
+<div class="chat-popup" id="myForm">
+  <form action="mailto:19zeeshan93@gmail.com" method="post" enctype="text/plain" class="form-container">
+    <h1>Contact Us</h1>
+
+    <label for="msg"><b>Please specify your requirement</b></label>
+	<label for="medical_items">Choose an item </label>
+<select id="medical_items" name="item">
+  <option value="masks">Masks</option>
+  <option value="gowns">Gowns</option>
+  <option value="sanitizers">Sanitizers</option>
+  <option value="respirators">Respirators</option>
+  <option value="shields">Shields</option>
+  <option value="goggles">Goggles</option>
+  <option value="gloves">gloves</option>
+  <option value="bouffant_caps">Bouffant Caps</option>
+  <option value="shoe_covers">Shoe Covers</option>
+  <option value="others">Other (please mention in message)</option>
+</select>
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+	
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
 		
         <!--
         Home Slider
@@ -112,10 +300,10 @@
 				<div class="carousel-inner" role="listbox">
 					
 					<!-- single slide -->
-					<div class="item active" style="background-image: url(img/1.jpg);">
+					<div class="item active" style="background-image: url(img/9.jpg);background-size: cover;">
 						<div class="carousel-caption">
 							<!--<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Peryton Developers</span>!</h2>-->
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#0f1465;text-shadow:0 0px 0px rgba(0,0,0,0)">Solutions for the Medical Community during <span><b>COVID19</b></span></h3>
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text<span><b>here</b></span></h3>
 							<!--<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
 							
 							<ul class="social-links text-center">
@@ -129,7 +317,7 @@
 					<!-- end single slide -->
 					
 					<!-- single slide -->
-					<div class="item" style="background-image: url(img/2.jpg);">
+					<div class="item" style="background-image: url(img/12.jpg);">
 						<!--<div class="carousel-caption">
 							<h2 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Team</span>!</h2>
 							<h3 data-wow-duration="500ms" class="wow slideInLeft animated"><span class="color">/creative</span> one page template.</h3>
@@ -144,7 +332,7 @@
 						</div> -->
 						<div class="carousel-caption">
 							<!--<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Peryton Developers</span>!</h2>-->
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0)">Reach out to us regarding PPE needs and someone from our team will be in touch ASAP</h3>
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#242461;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text Here</h3>
 							<!--<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
 							
 							<ul class="social-links text-center">
@@ -278,12 +466,12 @@
 				<div class="row">
 				
 					<div class="sec-title text-center">
-						<h3 style="color:#0f1465;">Our Commitment to Providers and Patients </h3>
+						<h3 style="color:#0f1465;">PPE Selection</h3>
 						<!--<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div> -->
 					</div>
 					
 					<div class="sec-sub-title text-center">
-						<p style="font-weight: normal;">We work at the critical intersection where innovations that save and sustain lives meet the physicians, nurses and pharmacists who make it happen. We are committed to improving outcomes for patients, and helping our partners meet the evolving challenges and opportunities in healthcare around the world</p>
+						<p style="font-weight: normal;">Please Provide Text Here</p>
 					</div>
 					
 					<!--<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
@@ -301,75 +489,93 @@
 			
 			<div class="project-wrapper">
 			
-				<figure class="mix work-item branding">
+				<figure class="mix work-item branding" style="width: 20%;">
 					<img src="img/works/mask.png" alt="">
 					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Peryton" target="_blank" href="https://darktheme.web.app"><i class="fa fa-eye fa-lg"></i></a>
+						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
 						<h4>Masks</h4>
-						<p>definitions or types</p>
+						<!--<p>definitions or types</p> -->
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item web">
+				<figure class="mix work-item web" style="width: 20%;">
 					<img src="img/works/gown.png" alt="">
 					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/works/item-2.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
 						<h4>Gowns</h4>
-						<p>definitions or types</p>
+						<!--<p>definitions or types</p> -->
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item logo-design">
+				<figure class="mix work-item logo-design" style="width: 20%;">
 					<img src="img/works/sanitizer.png" alt="">
 					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/works/item-3.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
 						<h4>Sanitizer</h4>
-						<p>definitions or types</p>
+						<!--<p>definitions or types</p> -->
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item photography">
+				<figure class="mix work-item photography" style="width: 20%;">
 					<img src="img/works/thermometer.png" alt="">
 					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/works/item-4.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
 						<h4>Thermometer</h4>
-						<p>definitions or types</p>
+						<!--<p>definitions or types</p> -->
 					</figcaption>
 				</figure>
 			
-				<figure class="mix work-item branding">
+				<figure class="mix work-item branding" style="width: 20%;">
 					<img src="img/works/respirator.png" alt="">
 					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/works/item-5.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
 						<h4>Respirator</h4>
-						<p>definitions or types</p>
+						<!--<p>definitions or types</p> -->
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item web">
+				<figure class="mix work-item web" style="width: 20%;">
 					<img src="img/works/shield.png" alt="">
 					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/works/item-6.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
 						<h4>Face Shield</h4>
-						<p>definitions or types</p>
+						<!--<p>definitions or types</p> -->
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item logo-design">
+				<figure class="mix work-item logo-design" style="width: 20%;">
 					<img src="img/works/goggles.png" alt="">
 					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/works/item-7.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
 						<h4>Goggles</h4>
-						<p>definitions or types</p>
+						<!--<p>definitions or types</p> -->
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item photography">
+				<figure class="mix work-item photography" style="width: 20%;">
 					<img src="img/works/gloves.png" alt="">
 					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="img/works/item-8.jpg"><i class="fa fa-eye fa-lg"></i></a>
+						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
 						<h4>Gloves</h4>
-						<p>definitions or types</p>
+						<!--<p>definitions or types</p> -->
+					</figcaption>
+				</figure> 
+				
+				<figure class="mix work-item photography" style="width: 20%;">
+					<img src="img/works/shoecover.png" alt="">
+					<figcaption class="overlay">
+						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
+						<h4>Shoe Covers</h4>
+						<!--<p>definitions or types</p> -->
+					</figcaption>
+				</figure> 
+				
+				<figure class="mix work-item photography" style="width: 20%;">
+					<img src="img/works/caps.png" alt="">
+					<figcaption class="overlay">
+						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
+						<h4>Bouffant Caps</h4>
+						<!--<p>definitions or types</p> -->
 					</figcaption>
 				</figure> 
 				
@@ -381,7 +587,7 @@
 		<div class="container">
 			<div class="row">
 			<div class="sec-sub-title text-center">
-						<p style="font-weight: normal;">We work at the critical intersection where innovations that save and sustain lives meet the physicians, nurses and pharmacists who make it happen. We are committed to improving outcomes for patients, and helping our partners meet the evolving challenges and opportunities in healthcare around the world</p>
+						<p style="font-weight: normal;">Please Provide Text Here</p>
 					</div>
 			</div>
 			</div>
@@ -394,10 +600,10 @@
 				<div class="carousel-inner" role="listbox">
 					
 					<!-- single slide -->
-					<div class="item active" style="background-image: url(img/6.jpg);">
+					<div class="item active" style="background-image: url(img/13.jpg);">
 						<div class="carousel-caption">
 							<!--<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Peryton Developers</span>!</h2>-->
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0)">Solutions for the Medical Community during <span><b>COVID19</b></span></h3>
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#0f1465;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text<span><b>Here</b></span></h3>
 							<!--<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
 							
 							<ul class="social-links text-center">
@@ -438,9 +644,7 @@
 					</div>
 					
 					<div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
-						<p style="font-weight: normal;">From advanced energy-based surgical devices to decades of experience across areas of respiratory care, we offer unmatched clinical and economic value through our range of market-leading brands.
-
-Our trusted technologies deliver performance and inspire confidence through a comprehensive approach that takes every element of a patient's health into careful consideration.  </p>
+						<p style="font-weight: normal;">Please Provide Text Here</p>
 					</div>
 
 					<!-- single member -->
@@ -530,10 +734,10 @@ Our trusted technologies deliver performance and inspire confidence through a co
 				<div class="carousel-inner" role="listbox">
 					
 					<!-- single slide -->
-					<div class="item active" style="background-image: url(img/7.jpg);">
+					<div class="item active" style="background-image: url(img/11.jpg);">
 						<div class="carousel-caption">
 							<!--<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Peryton Developers</span>!</h2>-->
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#0f1465;text-shadow:0 0px 0px rgba(0,0,0,0)">Solutions for the Medical Community during <span><b>COVID19</b></span></h3>
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text<span><b>here</b></span></h3>
 							<!--<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
 							
 							<ul class="social-links text-center">
@@ -566,8 +770,8 @@ Our trusted technologies deliver performance and inspire confidence through a co
 					</div>
 					
 					<div class="sec-sub-title text-center">
-						<p style="font-weight: normal;">The COVID-19 pandemic is an unprecedented healthcare crisis that requires our complete support—even when obstacles seem the greatest. </br></br>As a global leader in healthcare, we are focused on protecting the health and safety of our employees; increasing supply of our life-sustaining medicines and medical devices; expanding job opportunities globally to help meet increased product demand; and providing philanthropic support to impacted communities.</p>	
-						<p style="font-weight: normal;"></br></br>Our company mission at ResourceMed is Empowering Our Customers to Advance Healthcare. The health and safety of our teammates, suppliers, and our customers and their patients are at the heart of everything that we do, each and every day.</br></br> We know that now, more than ever, our customers are relying on us as the demand for healthcare services accelerates due to the ongoing coronavirus (COVID-19) pandemic. </br></br>We are committed to supporting our customers so that they can support patients. We continue to take significant action across our organization to make and deliver product as rapidly as possible.</p>
+						<p style="font-weight: normal;">Please Provide Text Here</br></br>Please Provide Text Here</p>	
+						<p style="font-weight: normal;"></br></br>Please Provide Text Here</br></br> Please Provide Text Here</br></br>Please Provide Text Here</p>
 					</div>
 					
 					<!--<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
@@ -584,7 +788,7 @@ Our trusted technologies deliver performance and inspire confidence through a co
 				<div class="row">
 				
 					<div class="sec-title text-center mb50 wow bounceInDown animated" data-wow-duration="500ms">
-						<h3 style="color:#0f1465;">WE’RE ALWAYS READY, SO YOU’RE ALWAYS ABLE.</h3>
+						<h3 style="color:#0f1465;">Please Provide Text Here</h3>
 						<!--<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div> -->
 					</div>
 
@@ -596,12 +800,8 @@ Our trusted technologies deliver performance and inspire confidence through a co
 							</div>
 							
 							<div class="service-desc">
-								<h3>Pandemic Preparedness</h3>
-								<p>As a leading healthcare company, ResourceMed	has robust pandemic preparedness plans in place at every level of our organization. We have a multi-faceted approach to pandemic response:
-
-Teammate Safety
-Business Continuity
-Serve Customers</p>
+								<h3>Please Provide Text Here</h3>
+								<p>Please Provide Text Here</p>
 							</div>
 						</div>
 					</div>			
@@ -613,8 +813,8 @@ Serve Customers</p>
 							</div>
 							
 							<div class="service-desc">
-								<h3>Essential to Critical Infrastructure:</h3>
-								<p>As a critical extension of our operations and supply chain, we view our supplier partners and service providers as included within the definition of “essential to critical infrastructure workforce</p>
+								<h3>Please Provide Text Here</h3>
+								<p>Please Provide Text Here</p>
 							</div>
 						</div>
 					</div>
@@ -628,8 +828,8 @@ Serve Customers</p>
 							</div>
 							
 							<div class="service-desc">
-								<h3>Increasing Product Supply</h3>
-								<p>The COVID-19 pandemic is challenging communities and healthcare systems around the world. It is also creating unprecedented demand for multiple Baxter products. We are doing whatever it takes to support healthcare providers during these extraordinary circumstances.</p>
+								<h3>Please Provide Text Here</h3>
+								<p>Please Provide Text Here</p>
 							</div>
 						</div>
 					</div>
@@ -660,22 +860,19 @@ Serve Customers</p>
         Some fun facts
         ==================================== -->		
 		
-		<section id="facts" class="facts">
+		<!--<section id="facts" class="facts">
 			<div class="parallax-overlay">
 				<div class="container">
 					<div class="row number-counters">
 						
-						<!--<div class="sec-title text-center mb50 wow rubberBand animated" data-wow-duration="1000ms">
-							<h2>Some Fun Facts</h2>
-							<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
-						</div> -->
 						
-						<!-- first count item -->
+						
+						
 						<div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
 							<div class="counters-item">
 								<i class="fa fa-clock-o fa-3x"></i>
 								<strong data-to="3200">0</strong>
-								<!-- Set Your Number here. i,e. data-to="56" -->
+								
 								<p>Hours of Work</p>
 							</div>
 						</div>
@@ -683,7 +880,7 @@ Serve Customers</p>
 							<div class="counters-item">
 								<i class="fa fa-users fa-3x"></i>
 								<strong data-to="120">0</strong>
-								<!-- Set Your Number here. i,e. data-to="56" -->
+								
 								<p>Satisfied Clients</p>
 							</div>
 						</div>
@@ -691,7 +888,7 @@ Serve Customers</p>
 							<div class="counters-item">
 								<i class="fa fa-rocket fa-3x"></i>
 								<strong data-to="360">0</strong>
-								<!-- Set Your Number here. i,e. data-to="56" -->
+								
 								<p> Projects Delivered </p>
 							</div>
 						</div>
@@ -699,27 +896,57 @@ Serve Customers</p>
 							<div class="counters-item">
 								<i class="fa fa-trophy fa-3x"></i>
 								<strong data-to="6454">0</strong>
-								<!-- Set Your Number here. i,e. data-to="56" -->
+								
 								<p>Awards Won</p>
 							</div>
 						</div>
-						<!-- end first count item -->
-				
+						
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 		
         <!--
         End Some fun facts
         ==================================== -->
 		
-		
+		<section id="slider">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">			
+				
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					
+					<!-- single slide -->
+					<div class="item active" style="background-image: url(img/15.jpg);">
+						<div class="carousel-caption">
+							<!--<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Peryton Developers</span>!</h2>-->
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text<span><b>Here</b></span></h3>
+							<!--<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
+							
+							<ul class="social-links text-center">
+								<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
+								<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
+								<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
+								<li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
+							</ul> -->
+						</div>
+					</div>
+					<!-- end single slide -->
+					
+					<!-- single slide -->
+					
+					<!-- end single slide -->
+					
+				</div>
+				<!-- End Wrapper for slides -->
+				
+			</div>
+		</section>
 		<!--
         Contact Us
         ==================================== -->		
 		
-		<section id="contact" class="contact">
+		<section id="contact" class="contact" style="background-color:#ececec">
 			<div class="container">
 				<div class="row mb50">
 				
@@ -737,7 +964,7 @@ Serve Customers</p>
 						<div class="contact-address">
 							<h3>Address text</h3>
 							<p>Address text</p>
-							<p>Address text</p>
+							<p>info@resourcemedllc.com</p>
 							<p>(401) 1234 567</p>
 						</div>
 					</div>
@@ -747,7 +974,7 @@ Serve Customers</p>
 					<div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="300ms">
 						<div class="contact-form">
 							<h3>Say hello!</h3>
-							<form action="#" id="contact-form">
+							<form action="mailto:info@resourcemedllc.com" method="post" enctype="text/plain" id="contact-form">
 								<div class="input-group name-email">
 									<div class="input-field">
 										<input type="text" name="name" id="name" placeholder="Name" class="form-control">
@@ -757,10 +984,25 @@ Serve Customers</p>
 									</div>
 								</div>
 								<div class="input-group">
+									<label for="medical_items">Choose an item &nbsp;&nbsp;</label>
+<select id="medical_items" name="items">
+  <option value="masks">Masks</option>
+  <option value="gowns">Gowns</option>
+  <option value="sanitizers">Sanitizers</option>
+  <option value="respirators">Respirators</option>
+  <option value="shields">Shields</option>
+  <option value="goggles">Goggles</option>
+  <option value="gloves">gloves</option>
+  <option value="bouffant_caps">Bouffant Caps</option>
+  <option value="shoe_covers">Shoe Covers</option>
+  <option value="others">Other (please mention in message)</option>
+</select>
+								</div>
+								<div class="input-group">
 									<textarea name="message" id="message" placeholder="Message" class="form-control"></textarea>
 								</div>
 								<div class="input-group">
-									<input type="submit" id="form-submit" class="pull-right" value="Send message">
+									<input type="submit" value="Send message">
 								</div>
 							</form>
 						</div>
@@ -891,11 +1133,9 @@ Serve Customers</p>
 		<!-- Custom Functions -->
         <script src="js/custom.js"></script>
 		
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 			$(function(){
-				/* ========================================================================= */
-				/*	Contact Form
-				/* ========================================================================= */
+			
 				
 				$('#contact-form').validate({
 					rules: {
@@ -946,6 +1186,6 @@ Serve Customers</p>
 					}
 				});
 			});
-		</script>
+		</script> -->
     </body>
 </html>
