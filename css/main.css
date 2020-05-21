@@ -613,14 +613,15 @@ label.error {
 }
 
 .contact-form #form-submit {
-  background: url("../img/envelop.png") no-repeat scroll 0 15px transparent;
+ /* background: url("../img/envelop.png") no-repeat scroll 0 15px transparent; */
   border: 0 none;
-  color: #000;
+  color: #ffffff;
   font-size: 16px;
   line-height: 24px;
   padding: 10px;
-  text-align: right;
+  text-align: center;
   width: 150px;
+  background-color: #2cb1d2;
 }
 
 .footer-social {

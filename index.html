@@ -13,7 +13,7 @@
 		<!-- Meta Description -->
         <meta name="description" content="Blue One Page Creative HTML5 Template">
         <meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
-        <meta name="author" content="Muhammad Morshed">
+        <meta name="author" content="Peryton">
 		<!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -35,9 +35,12 @@
         <link rel="stylesheet" href="css/main.css">
 		<!-- media-queries -->
         <link rel="stylesheet" href="css/media-queries.css">
+		
 
 		<!-- Modernizer Script for old Browsers -->
         <script src="js/modernizr-2.6.2.min.js"></script>
+	
+		
 		
 		<style>
 		 /*Trigger Button*/
@@ -57,8 +60,8 @@ h4 {
   color: #fff;
 }
 .close {
-  color: #fff;
-  transform: scale(1.2)
+  color: #2cb1d2;
+  transform: scale(1.5)
 }
 .modal-content {
   font-weight: bold;
@@ -81,7 +84,7 @@ h4 {
   background: transparent;  
 }
 .form-control::-webkit-input-placeholder {
-  color: #eee;  
+  color: #b4bbc2;  
 }
 .form-control:focus::-webkit-input-placeholder {
   font-weight: bold;
@@ -91,10 +94,10 @@ h4 {
   padding: 6px 20px;
   border-radius: 20px;
   background: none;
-  border: 2px solid #ffffff;
-  color: #ffffff;
+  border: 2px solid #2cb1d2;
+  color: #2cb1d2;
   font-weight: bold;
-  transition: all .5s;
+  transition: all .7s;
   margin-top: 1em;
 }
 .login:hover {
@@ -128,13 +131,15 @@ h4 {
   right: 15px;
   border: 3px solid #f1f1f1;
   z-index: 9;
+  width:60%;
 }
 
 /* Add styles to the form container */
 .form-container {
-  max-width: 300px;
+  max-width: 700px;
   padding: 10px;
   background-color: white;
+ 
 }
 
 /* Full-width textarea */
@@ -163,7 +168,7 @@ h4 {
   cursor: pointer;
   width: 100%;
   margin-bottom:10px;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 /* Add a blue background color to the cancel button */
@@ -176,6 +181,20 @@ h4 {
   opacity: 1;
 }
 
+/*Placeholder color change*/
+
+::placeholder {
+  color: #black;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: #black;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: #black;
+}
 		</style>
 
     </head>
@@ -191,7 +210,7 @@ h4 {
         <!-- 
         Fixed Navigation
         ==================================== -->
-        <header id="navigation" class="navbar-fixed-top navbar"  style="background-color: rgba(255, 255, 255, 0.8);">
+        <header id="navigation" class="navbar-fixed-top navbar"  style="background-color: rgb(255, 255, 255);">
             <div class="container">
                 <div class="navbar-header">
                     <!-- responsive nav button -->
@@ -244,32 +263,109 @@ h4 {
     </div>
   </div>  
 </div>
-		<button class="open-button" onclick="openForm()">Contact Us</button>
 
-<div class="chat-popup" id="myForm">
+<div id="ppeform" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="width: 400px; margin: 100px auto;">
+    
+    <div class="modal-content" style="background:linear-gradient(to bottom,#ffffff,#dde8eb);">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4 style="color:#2cb1d2;">Please tell us about your PPE requirement</h4>
+        <form action="mailto:info@resourcemedllc.com" method="post" enctype="text/plain">
+          <input type="text" name="name" class="username form-control" placeholder="Name"/>
+          <input type="email" name="email" class="username form-control" placeholder="Email"/>
+		  <input type="tel" name="phone" class="username form-control" placeholder="Contact Number"/>
+		  <input type="text" name="title" class="username form-control" placeholder="Title"/>
+		  <input type="text" name="institution" class="username form-control" placeholder="Institution"/>
+		  <input type="checkbox" id="PPE1" name="Masks" value="Yes">
+									<label for="PPE1" style="font-weight: normal;">&nbsp;Masks&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE2" name="Gowns" value="Yes">
+									<label for="PPE2" style="font-weight: normal;">&nbsp;Gowns&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE3" name="Sanitizers" value="Yes">
+									<label for="PPE3" style="font-weight: normal;">&nbsp;Sanitizers&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE4" name="Respirators" value="Yes">
+									<label for="PPE4" style="font-weight: normal;">&nbsp;Respirators&nbsp;&nbsp;&nbsp;</label><br>
+									<input type="checkbox" id="PPE5" name="Shields" value="Yes">
+									<label for="PPE5" style="font-weight: normal;">&nbsp;Shields&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE6" name="Goggles" value="Yes">
+									<label for="PPE6" style="font-weight: normal;">&nbsp;Goggles&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE7" name="Gloves" value="Yes">
+									<label for="PPE7" style="font-weight: normal;">&nbsp;Gloves&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE8" name="Bouffant_Caps" value="Yes">
+									<label for="PPE8" style="font-weight: normal;">&nbsp;Bouffant Caps&nbsp;&nbsp;&nbsp;</label><br>
+									<input type="checkbox" id="PPE9" name="Shoe_Covers" value="Yes">
+									<label for="PPE9" style="font-weight: normal;">&nbsp;Shoe Covers&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE10" name="Other" value="Yes">
+									<label for="PPE10" style="font-weight: normal;">&nbsp;Other</label><br>
+				<h6 style="color:#242461;"><br>If you have chosen <b>Other</b>, please specify your requirement in the message. We are glad to be of service.<br></h6>
+			<textarea placeholder="Please describe what you are currently in need of..." name="msg"  class="username form-control"></textarea>
+          <input class="btn login" type="submit" value="Send Message via Mail" />
+		  
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<button class="open-button"><a href="#" style="color:#ffffff;" data-target="#ppeform" data-toggle="modal">Contact Us</a></button>
+
+		<!--<button class="open-button" onclick="openForm()">Contact Us</button> -->
+
+<!--<div class="chat-popup" id="myForm">
   <form action="mailto:19zeeshan93@gmail.com" method="post" enctype="text/plain" class="form-container">
     <h1>Contact Us</h1>
 
     <label for="msg"><b>Please specify your requirement</b></label>
-	<label for="medical_items">Choose an item </label>
-<select id="medical_items" name="item">
-  <option value="masks">Masks</option>
-  <option value="gowns">Gowns</option>
-  <option value="sanitizers">Sanitizers</option>
-  <option value="respirators">Respirators</option>
-  <option value="shields">Shields</option>
-  <option value="goggles">Goggles</option>
-  <option value="gloves">gloves</option>
-  <option value="bouffant_caps">Bouffant Caps</option>
-  <option value="shoe_covers">Shoe Covers</option>
-  <option value="others">Other (please mention in message)</option>
-</select>
+	
+	<div class="input-group" style="color:#2cb1d2;">
+									<input type="checkbox" id="PPE1" name="Masks" value="Yes">
+									<label for="PPE1" style="font-weight: normal;">&nbsp;Masks&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE2" name="Gowns" value="Yes">
+									<label for="PPE2" style="font-weight: normal;">&nbsp;Gowns&nbsp;&nbsp;&nbsp;</label><br>
+									<input type="checkbox" id="PPE3" name="Sanitizers" value="Yes">
+									<label for="PPE3" style="font-weight: normal;">&nbsp;Sanitizers&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE4" name="Respirators" value="Yes">
+									<label for="PPE4" style="font-weight: normal;">&nbsp;Respirators&nbsp;&nbsp;&nbsp;</label><br>
+									<input type="checkbox" id="PPE5" name="Shields" value="Yes">
+									<label for="PPE5" style="font-weight: normal;">&nbsp;Shields&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE6" name="Goggles" value="Yes">
+									<label for="PPE6" style="font-weight: normal;">&nbsp;Goggles&nbsp;&nbsp;&nbsp;</label><br>
+									<input type="checkbox" id="PPE7" name="Gloves" value="Yes">
+									<label for="PPE7" style="font-weight: normal;">&nbsp;Gloves&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE8" name="Bouffant_Caps" value="Yes">
+									<label for="PPE8" style="font-weight: normal;">&nbsp;Bouffant Caps&nbsp;&nbsp;&nbsp;</label><br>
+									<input type="checkbox" id="PPE9" name="Shoe_Covers" value="Yes">
+									<label for="PPE9" style="font-weight: normal;">&nbsp;Shoe Covers&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE10" name="Other" value="Yes">
+									<label for="PPE10" style="font-weight: normal;">&nbsp;Other</label><br>
+								
+								</div>
+
+	<div class="input-group name-email">
+									<div class="input-field">
+										<input type="text" name="name" id="name" placeholder="Name" class="form-control">
+									</div>
+									<div class="input-field">
+										<input type="email" name="email" id="email" placeholder="Email" class="form-control">
+									</div>
+	</div>
+	<div class="input-group name-email">
+									<div class="input-field">
+										<input type="text" name="name" id="name" placeholder="Name" class="form-control">
+									</div>
+									<div class="input-field">
+										<input type="email" name="email" id="email" placeholder="Email" class="form-control">
+									</div>
+	</div>
+	<div class="input-field">
+										<input type="email" name="email" id="email" placeholder="Email" class="form-control">
+									</div>
     <textarea placeholder="Type message.." name="msg" required></textarea>
 	
     <button type="submit" class="btn">Send</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
-</div>
+</div> -->
 
 <script>
 function openForm() {
@@ -303,7 +399,7 @@ function closeForm() {
 					<div class="item active" style="background-image: url(img/9.jpg);background-size: cover;">
 						<div class="carousel-caption">
 							<!--<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Peryton Developers</span>!</h2>-->
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text<span><b>here</b></span></h3>
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0);font-size: 35px;margin-top: -80px;">Located just outside of Washington DC, ResourceMed is your trusted provider of <span><b>Personal Protective Equipment (PPE)</b></span></h3>
 							<!--<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
 							
 							<ul class="social-links text-center">
@@ -332,7 +428,7 @@ function closeForm() {
 						</div> -->
 						<div class="carousel-caption">
 							<!--<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Peryton Developers</span>!</h2>-->
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#242461;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text Here</h3>
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#242461;text-shadow:0 0px 0px rgba(0,0,0,0)">Please let us know how we can help meet your PPE needs today</h3>
 							<!--<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
 							
 							<ul class="social-links text-center">
@@ -467,12 +563,12 @@ function closeForm() {
 				
 					<div class="sec-title text-center">
 						<h3 style="color:#0f1465;">PPE Selection</h3>
-						<!--<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div> -->
+						<div class="devider"><i class="fa fa-plus fa-lg"></i></div> 
 					</div>
 					
-					<div class="sec-sub-title text-center">
+					<!--<div class="sec-sub-title text-center">
 						<p style="font-weight: normal;">Please Provide Text Here</p>
-					</div>
+					</div> -->
 					
 					<!--<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
 						<ul class="text-center">
@@ -489,7 +585,7 @@ function closeForm() {
 			
 			<div class="project-wrapper">
 			
-				<figure class="mix work-item branding" style="width: 20%;">
+				<figure class="mix work-item branding">
 					<img src="img/works/mask.png" alt="">
 					<figcaption class="overlay">
 						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
@@ -498,7 +594,7 @@ function closeForm() {
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item web" style="width: 20%;">
+				<figure class="mix work-item web">
 					<img src="img/works/gown.png" alt="">
 					<figcaption class="overlay">
 						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
@@ -507,7 +603,7 @@ function closeForm() {
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item logo-design" style="width: 20%;">
+				<figure class="mix work-item logo-design">
 					<img src="img/works/sanitizer.png" alt="">
 					<figcaption class="overlay">
 						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
@@ -516,7 +612,7 @@ function closeForm() {
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item photography" style="width: 20%;">
+				<figure class="mix work-item photography">
 					<img src="img/works/thermometer.png" alt="">
 					<figcaption class="overlay">
 						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
@@ -525,7 +621,7 @@ function closeForm() {
 					</figcaption>
 				</figure>
 			
-				<figure class="mix work-item branding" style="width: 20%;">
+				<figure class="mix work-item branding">
 					<img src="img/works/respirator.png" alt="">
 					<figcaption class="overlay">
 						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
@@ -534,7 +630,7 @@ function closeForm() {
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item web" style="width: 20%;">
+				<figure class="mix work-item web">
 					<img src="img/works/shield.png" alt="">
 					<figcaption class="overlay">
 						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
@@ -543,7 +639,7 @@ function closeForm() {
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item logo-design" style="width: 20%;">
+				<figure class="mix work-item logo-design">
 					<img src="img/works/goggles.png" alt="">
 					<figcaption class="overlay">
 						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
@@ -552,7 +648,7 @@ function closeForm() {
 					</figcaption>
 				</figure>
 				
-				<figure class="mix work-item photography" style="width: 20%;">
+				<figure class="mix work-item photography">
 					<img src="img/works/gloves.png" alt="">
 					<figcaption class="overlay">
 						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
@@ -561,7 +657,7 @@ function closeForm() {
 					</figcaption>
 				</figure> 
 				
-				<figure class="mix work-item photography" style="width: 20%;">
+				<figure class="mix work-item photography">
 					<img src="img/works/shoecover.png" alt="">
 					<figcaption class="overlay">
 						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
@@ -570,7 +666,7 @@ function closeForm() {
 					</figcaption>
 				</figure> 
 				
-				<figure class="mix work-item photography" style="width: 20%;">
+				<figure class="mix work-item photography">
 					<img src="img/works/caps.png" alt="">
 					<figcaption class="overlay">
 						<a rel="" title="" target="" href="#myForm"><i class="fa fa-plus fa-lg"></i></a>
@@ -583,7 +679,7 @@ function closeForm() {
 			
 		</section>
 		
-		<section id="works" class="works clearfix" style="padding: 30px 0;">
+		<!--<section id="works" class="works clearfix" style="padding: 30px 0;">
 		<div class="container">
 			<div class="row">
 			<div class="sec-sub-title text-center">
@@ -591,7 +687,7 @@ function closeForm() {
 					</div>
 			</div>
 			</div>
-		</section>
+		</section> -->
 		
 		<section id="slider">
 			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">			
@@ -603,7 +699,7 @@ function closeForm() {
 					<div class="item active" style="background-image: url(img/13.jpg);">
 						<div class="carousel-caption">
 							<!--<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Peryton Developers</span>!</h2>-->
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#0f1465;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text<span><b>Here</b></span></h3>
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#0f1465;text-shadow:0 0px 0px rgba(0,0,0,0);">Shortage of <span><b>PPE (personal protective equipment) </b></span>kits? Let us know your requirements</h3>
 							<!--<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
 							
 							<ul class="social-links text-center">
@@ -634,133 +730,102 @@ function closeForm() {
         Meet Our Team
         ==================================== -->		
 		
-		<section id="team" class="team">
+		<!--<section id="team" class="team">
 			<div class="container">
 				<div class="row">
 		
 					<div class="sec-title text-center wow fadeInUp animated" data-wow-duration="700ms">
 						<h3 style="color:#0f1465;">Performance and Value at Your Finger Tips</h3>
-						<!--<div class="devider"><i class="fa fa-plus fa-lg"></i></div>-->
+						<div class="devider"><i class="fa fa-plus fa-lg"></i></div>
 					</div>
 					
 					<div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
 						<p style="font-weight: normal;">Please Provide Text Here</p>
 					</div>
 
-					<!-- single member -->
+					
 					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
 						<div class="member-thumb">
 							<img src="img/team/service1.png" alt="Team Member" class="img-responsive">
 							<figcaption class="overlay">
 								<h5>Service 1</h5>
 								<p>Content</p>
-								<!--<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul> -->
+								
 							</figcaption>
 						</div>
 						<h4>Service 1</h4>
 						<span>sub content</span>
 					</figure>
-					<!-- end single member -->
 					
-					<!-- single member -->
+					
+					
 					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
 						<div class="member-thumb">
 							<img src="img/team/service1.png" alt="Team Member" class="img-responsive">
 							<figcaption class="overlay">
 								<h5>Service 2</h5>
 								<p>Content</p>
-								<!--<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul> -->
+								
 							</figcaption>
 						</div>
 						<h4>Service 2</h4>
 						<span>sub content</span>
 					</figure>
-					<!-- end single member -->
 					
-					<!-- single member -->
 					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
 						<div class="member-thumb">
 							<img src="img/team/service1.png" alt="Team Member" class="img-responsive">
 							<figcaption class="overlay">
 								<h5>Service 3</h5>
 								<p>Content</p>
-								<!--<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul> -->
+								
 							</figcaption>
 						</div>
 						<h4>Service 3</h4>
 						<span>sub content</span>
 					</figure>
-					<!-- end single member -->
 					
-					<!-- single member -->
 					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
 						<div class="member-thumb">
 							<img src="img/team/service1.png" alt="Team Member" class="img-responsive">
 							<figcaption class="overlay">
 								<h5>Service 4</h5>
 								<p>Content</p>
-								<!--<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul> -->
+								
 							</figcaption>
 						</div>
 						<h4>Service 4</h4>
 						<span>sub content</span>
 					</figure>
-					<!-- end single member -->
+					
 					
 				</div>
 			</div>
-		</section>
+		</section> -->
 		
-		<section id="slider">
+		<!--<section id="slider">
 			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">			
 				
-				<!-- Wrapper for slides -->
+				
 				<div class="carousel-inner" role="listbox">
 					
-					<!-- single slide -->
+				
 					<div class="item active" style="background-image: url(img/11.jpg);">
 						<div class="carousel-caption">
-							<!--<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Peryton Developers</span>!</h2>-->
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text<span><b>here</b></span></h3>
-							<!--<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
 							
-							<ul class="social-links text-center">
-								<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
-							</ul> -->
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text<span><b>here</b></span></h3>
+							
 						</div>
 					</div>
-					<!-- end single slide -->
 					
-					<!-- single slide -->
-					
-					<!-- end single slide -->
 					
 				</div>
-				<!-- End Wrapper for slides -->
+				
 				
 			</div>
-		</section>
+		</section> -->
 		
-		<section id="features" class="features">
+		<!--<section id="features" class="features">
 			<div class="container">
 				<div class="row">
 				
@@ -774,22 +839,14 @@ function closeForm() {
 						<p style="font-weight: normal;"></br></br>Please Provide Text Here</br></br> Please Provide Text Here</br></br>Please Provide Text Here</p>
 					</div>
 					
-					<!--<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
-						<ul class="text-center">
-							<li><a href="javascript:;" data-filter="all" class="active filter">All</a></li>
-							<li><a href="javascript:;" data-filter=".branding" class="filter">Branding</a></li>
-							<li><a href="javascript:;" data-filter=".web" class="filter">web</a></li>
-							<li><a href="javascript:;" data-filter=".logo-design" class="filter">logo design</a></li>
-							<li><a href="javascript:;" data-filter=".photography" class="filter">photography</a></li>
-						</ul>
-					</div>  -->
+				
 					
 				</div>
 				<div class="row">
 				
 					<div class="sec-title text-center mb50 wow bounceInDown animated" data-wow-duration="500ms">
 						<h3 style="color:#0f1465;">Please Provide Text Here</h3>
-						<!--<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div> -->
+						
 					</div>
 
 					
@@ -834,23 +891,11 @@ function closeForm() {
 						</div>
 					</div>
 					
-					<!--<div class="col-md-4 wow fadeInRight" data-wow-duration="500ms"  data-wow-delay="900ms">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-plus fa-2x"></i>
-							</div>
-							
-							<div class="service-desc">
-								<h3>Increasing Product Supply</h3>
-								<p>The COVID-19 pandemic is challenging communities and healthcare systems around the world. It is also creating unprecedented demand for multiple Baxter products. We are doing whatever it takes to support healthcare providers during these extraordinary circumstances.</p>
-							</div>
-						</div>
-					</div> -->
 					
 						
 				</div> 
 			</div>
-		</section>
+		</section> -->
 		
         <!--
         End Meet Our Team
@@ -910,38 +955,27 @@ function closeForm() {
         End Some fun facts
         ==================================== -->
 		
-		<section id="slider">
+		<!--<section id="slider">
 			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">			
 				
-				<!-- Wrapper for slides -->
+				
 				<div class="carousel-inner" role="listbox">
 					
-					<!-- single slide -->
+					
 					<div class="item active" style="background-image: url(img/15.jpg);">
 						<div class="carousel-caption">
-							<!--<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Peryton Developers</span>!</h2>-->
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text<span><b>Here</b></span></h3>
-							<!--<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
 							
-							<ul class="social-links text-center">
-								<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
-							</ul> -->
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated" style="color:#ffffff;text-shadow:0 0px 0px rgba(0,0,0,0)">Please Provide Text<span><b>Here</b></span></h3>
+							
 						</div>
 					</div>
-					<!-- end single slide -->
 					
-					<!-- single slide -->
-					
-					<!-- end single slide -->
 					
 				</div>
-				<!-- End Wrapper for slides -->
+			
 				
 			</div>
-		</section>
+		</section> -->
 		<!--
         Contact Us
         ==================================== -->		
@@ -955,17 +989,17 @@ function closeForm() {
 						<div class="devider"><i class="fa fa-plus fa-lg"></i></div>
 					</div>
 					
-					<div class="sec-sub-title text-center wow fadeInDown animated" data-wow-duration="1000ms">
+					<!--<div class="sec-sub-title text-center wow fadeInDown animated" data-wow-duration="1000ms" style="color:#242461">
 						<p>Reach out for medical solutions</p>
-					</div>
+					</div> -->
 					
 					<!-- contact address -->
 					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 wow fadeInLeft animated" data-wow-duration="500ms">
 						<div class="contact-address">
-							<h3>Address text</h3>
-							<p>Address text</p>
+							<h3 style="color:#242461">Address</h3>
+							<p>6701 Democracy Blvd suite 300 Bethesda MD 20817</p>
 							<p>info@resourcemedllc.com</p>
-							<p>(401) 1234 567</p>
+							<!--<p>(401) 1234 567</p> -->
 						</div>
 					</div>
 					<!-- end contact address -->
@@ -973,7 +1007,7 @@ function closeForm() {
 					<!-- contact form -->
 					<div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="300ms">
 						<div class="contact-form">
-							<h3>Say hello!</h3>
+							<h3 style="color:#242461">Reach out for PPE requirements</h3>
 							<form action="mailto:info@resourcemedllc.com" method="post" enctype="text/plain" id="contact-form">
 								<div class="input-group name-email">
 									<div class="input-field">
@@ -983,7 +1017,20 @@ function closeForm() {
 										<input type="email" name="email" id="email" placeholder="Email" class="form-control">
 									</div>
 								</div>
-								<div class="input-group">
+								<div class="input-group name-email">
+									<div class="input-field">
+										<input type="tel" name="phone" id="phone" placeholder="Phone Number" class="form-control">
+									</div>
+									<div class="input-field">
+										<input type="name" name="title" id="title" placeholder="Title" class="form-control">
+									</div>
+								</div>
+								<div class="input-group name-email">
+									<div class="input-field" style="width:100%;">
+										<input type="name" name="institution" id="institution" placeholder="Institution" class="form-control">
+									</div>
+								</div>
+								<!--<div class="input-group">
 									<label for="medical_items">Choose an item &nbsp;&nbsp;</label>
 <select id="medical_items" name="items">
   <option value="masks">Masks</option>
@@ -992,17 +1039,45 @@ function closeForm() {
   <option value="respirators">Respirators</option>
   <option value="shields">Shields</option>
   <option value="goggles">Goggles</option>
-  <option value="gloves">gloves</option>
+  <option value="gloves">Gloves</option>
   <option value="bouffant_caps">Bouffant Caps</option>
   <option value="shoe_covers">Shoe Covers</option>
   <option value="others">Other (please mention in message)</option>
 </select>
+								</div> -->
+								<!--<div class="custom-control custom-checkbox mb-3">
+      <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+      <label class="custom-control-label" for="customCheck">Custom checkbox</label>
+    </div> -->
+								<div class="input-group" style="color:#2cb1d2;">
+									<input type="checkbox" id="PPE1" name="Masks" value="Yes">
+									<label for="PPE1" style="font-weight: normal;">&nbsp;Masks&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE2" name="Gowns" value="Yes">
+									<label for="PPE2" style="font-weight: normal;">&nbsp;Gowns&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE3" name="Sanitizers" value="Yes">
+									<label for="PPE3" style="font-weight: normal;">&nbsp;Sanitizers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE4" name="Respirators" value="Yes">
+									<label for="PPE4" style="font-weight: normal;">&nbsp;Respirators&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE5" name="Shields" value="Yes">
+									<label for="PPE5" style="font-weight: normal;">&nbsp;Shields&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><br>
+									<input type="checkbox" id="PPE6" name="Goggles" value="Yes">
+									<label for="PPE6" style="font-weight: normal;">&nbsp;Goggles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE7" name="Gloves" value="Yes">
+									<label for="PPE7" style="font-weight: normal;">&nbsp;Gloves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE8" name="Bouffant_Caps" value="Yes">
+									<label for="PPE8" style="font-weight: normal;">&nbsp;Bouffant Caps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE9" name="Shoe_Covers" value="Yes">
+									<label for="PPE9" style="font-weight: normal;">&nbsp;Shoe Covers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<input type="checkbox" id="PPE10" name="Other" value="Yes">
+									<label for="PPE10" style="font-weight: normal;">&nbsp;Other</label><br>
+								
+								</div>
+								<h6><br>If you have chosen <b>Other</b>, please specify your requirement in the message. We are glad to be of service.<br></h6>
+								<div class="input-group">
+									<textarea name="message" id="message" placeholder="Please describe what you are currently in need of..." class="form-control"></textarea>
 								</div>
 								<div class="input-group">
-									<textarea name="message" id="message" placeholder="Message" class="form-control"></textarea>
-								</div>
-								<div class="input-group">
-									<input type="submit" value="Send message">
+									<input type="submit" id="form-submit" value="Send Mail" class="pull-right">
 								</div>
 							</form>
 						</div>
